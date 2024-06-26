@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Chargement de Contenu Dynamique</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div id="content"></div>
+    <button id="loadContent">Load Content</button>
+
+    <script>
+        $(document).ready(function() {
+            $("#loadContent").click(function() {
+                $("#content").load("content.html");
+            });
+        });
+    </script>
+</body>
+</html>
