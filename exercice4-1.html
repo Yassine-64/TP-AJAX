@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Utilisation de Fichier JSON</title>
+    <script>
+        function loadUsers() {
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "users.json", true);
+            xhr.onload = function() {
+                if (xhr.status === 200) {
+                    var users = JSON.parse(xhr.responseText);
+                    var usersDiv = document.getElementById("users");
+                    users.forEach(function(user) {
+                        var userDiv = document.createElement("div");
+                        userDiv.textContent = user.name + " - " + user.email;
+                        usersDiv.appendChild(userDiv);
+                    });
+                }
+            };
+            xhr.send();
+        }
+    </script>
+</head>
+<body>
+    <h1>Récupérer les utilisateurs avec XMLHttpRequest</h1>
+    <button onclick="loadUsers()">Load Users</button>
+    <div id="users"></div>
+</body>
+</html>
