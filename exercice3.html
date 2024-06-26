@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Mise à Jour de l'Heure avec AJAX</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>Heure Actuelle</h1>
+    <div id="time"></div>
+
+    <script>
+        $(document).ready(function() {
+            function updateTime() {
+                $.ajax({
+                    url: "time.php",
+                    success: function(data) {
+                        $("#time").html(data);
+                    }
+                });
+            }
+            setInterval(updateTime, 1000);
+        });
+    </script>
+</body>
+</html>
