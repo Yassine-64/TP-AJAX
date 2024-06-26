@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Utilisation de Fichier JSON avec jQuery</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("button").click(function() {
+                $.getJSON("users.json", function(users) {
+                    var usersDiv = $("#users");
+                    users.forEach(function(user) {
+                        usersDiv.append("<div>" + user.name + " - " + user.email + "</div>");
+                    });
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>Récupérer les utilisateurs avec jQuery</h1>
+    <button>Load Users</button>
+    <div id="users"></div>
+</body>
+</html>
